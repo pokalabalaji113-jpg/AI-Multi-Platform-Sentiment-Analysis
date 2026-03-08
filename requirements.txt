@@ -1,7 +1,9 @@
 streamlit
 pandas
+numpy
+scikit-learn
 plotly
-textblob
-snscrape
-vaderSentiment
+joblib
 youtube-comment-downloader
+beautifulsoup4
+requests
