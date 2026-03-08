@@ -1,10 +1,7 @@
 streamlit
 pandas
-scikit-learn
-nltk
-wordcloud
-matplotlib
-joblib
-snscrape
 plotly
-google-api-python-client
+textblob
+snscrape
+vaderSentiment
+youtube-comment-downloader
