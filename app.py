@@ -104,39 +104,47 @@ if platform == "Amazon CSV Analysis":
 
     st.subheader("📊 Amazon CSV Bulk Review Analysis")
 
-    file = st.file_uploader("Upload Amazon Reviews CSV",type=["csv"])
+    file = st.file_uploader("Upload Amazon Reviews CSV", type=["csv"])
 
-    if file:
+    if file is not None:
 
-        df = pd.read_csv(file)
+        try:
+            df = pd.read_csv(file)
 
-        review_col = df.columns[0]
+            if df.empty:
+                st.error("CSV file is empty")
+            else:
 
-        if st.button("Run Analysis"):
+                review_col = df.columns[0]
 
-            df["clean"] = df[review_col].astype(str).apply(clean_text)
+                if st.button("Run Analysis"):
 
-            X = vectorizer.transform(df["clean"])
+                    df["clean"] = df[review_col].astype(str).apply(clean_text)
 
-            df["sentiment"] = model.predict(X)
+                    X = vectorizer.transform(df["clean"])
 
-            pos = sum(df["sentiment"])
-            neg = len(df)-pos
+                    df["sentiment"] = model.predict(X)
 
-            col1,col2 = st.columns(2)
+                    pos = int(sum(df["sentiment"]))
+                    neg = int(len(df) - pos)
 
-            col1.metric("Positive Reviews",pos)
-            col2.metric("Negative Reviews",neg)
+                    col1, col2 = st.columns(2)
 
-            fig = px.pie(
-            values=[pos,neg],
-            names=["Positive","Negative"],
-            title="Sentiment Distribution"
-            )
+                    col1.metric("Positive Reviews", pos)
+                    col2.metric("Negative Reviews", neg)
 
-            st.plotly_chart(fig)
+                    fig = px.pie(
+                        values=[pos, neg],
+                        names=["Positive", "Negative"],
+                        title="Sentiment Distribution"
+                    )
 
-            st.dataframe(df[[review_col,"sentiment"]].head())
+                    st.plotly_chart(fig)
+
+                    st.dataframe(df[[review_col, "sentiment"]].head())
+
+        except Exception as e:
+            st.error(f"Error processing CSV: {e}")
 
     st.markdown('</div>', unsafe_allow_html=True)
 # =================================================
