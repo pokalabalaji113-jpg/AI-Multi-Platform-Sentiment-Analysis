@@ -6,4 +6,5 @@ wordcloud
 matplotlib
 joblib
 snscrape
+plotly
 google-api-python-client
