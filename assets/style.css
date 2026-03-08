@@ -1,0 +1,118 @@
+/* MAIN BACKGROUND */
+/* Fix text visibility inside text area */
+
+.stTextArea textarea {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* Fix placeholder color */
+
+.stTextArea textarea::placeholder {
+    color: gray !important;
+}
+
+.stTextArea textarea:focus{
+    border:2px solid #ff4b2b;
+    box-shadow:0px 0px 10px rgba(255,75,43,0.6);
+}
+.stApp{
+background: linear-gradient(135deg,#1f4037,#99f2c8);
+background-attachment: fixed;
+font-family: 'Segoe UI', sans-serif;
+}
+
+/* MAIN TITLE */
+
+.main-title{
+font-size:55px;
+font-weight:800;
+text-align:center;
+color:white;
+margin-bottom:5px;
+text-shadow:0px 4px 20px rgba(0,0,0,0.4);
+}
+
+.subtitle{
+text-align:center;
+font-size:22px;
+color:white;
+margin-bottom:40px;
+}
+
+/* SECTION CARDS */
+
+.card{
+background: rgba(255,255,255,0.15);
+padding:35px;
+border-radius:18px;
+margin-bottom:30px;
+backdrop-filter: blur(10px);
+box-shadow:0px 12px 35px rgba(0,0,0,0.35);
+transition:0.3s;
+}
+
+.card:hover{
+transform: scale(1.02);
+}
+
+/* INPUT BOX */
+
+textarea{
+background: rgba(255,255,255,0.2) !important;
+border-radius:12px !important;
+color:white !important;
+font-size:16px !important;
+border:2px solid rgba(255,255,255,0.4) !important;
+}
+
+/* FILE UPLOADER */
+
+[data-testid="stFileUploader"]{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:12px;
+}
+
+/* BUTTONS */
+
+.stButton>button{
+background: linear-gradient(45deg,#ff416c,#ff4b2b);
+color:white;
+font-size:18px;
+padding:12px 30px;
+border-radius:12px;
+border:none;
+box-shadow:0px 6px 20px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.stButton>button:hover{
+transform: scale(1.05);
+background: linear-gradient(45deg,#ff4b2b,#ff416c);
+}
+
+/* METRIC BOX */
+
+[data-testid="stMetric"]{
+background: rgba(255,255,255,0.25);
+padding:18px;
+border-radius:12px;
+text-align:center;
+box-shadow:0px 8px 25px rgba(0,0,0,0.3);
+}
+
+/* DATAFRAME */
+
+[data-testid="stDataFrame"]{
+background: rgba(255,255,255,0.2);
+border-radius:12px;
+}
+
+/* DROPDOWN */
+
+.stSelectbox{
+background: rgba(255,255,255,0.2);
+padding:10px;
+border-radius:10px;
+}
